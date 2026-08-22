@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Ayushrugs</title>
+<meta name="description" content="Get in touch with Ayushrugs. Reach us via email or follow us on Instagram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ============ TOKENS ============ */
+:root{
+  --sand:        #F1E4CE;
+  --sand-deep:   #E7D5B2;
+  --ink:         #2B211B;
+  --terracotta:  #B85C2E;
+  --red:         #7A1E24;
+  --red-dark:    #5C1419;
+  --mustard:     #C98A1F;
+  --brown:       #4A3626;
+  --brown-deep:  #362718;
+  --cream:       #FBF6EC;
+  --line:        rgba(43,33,27,0.14);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --container: 1240px;
+  --radius: 2px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--sand);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+
+.wrap{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 32px;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--terracotta);
+  outline-offset:3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+
+/* ============ TYPE ============ */
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:600;
+  line-height:1.08;
+  margin:0;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--terracotta);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:18px;height:1px;
+  background:var(--terracotta);
+  display:inline-block;
+}
+p{margin:0 0 1em;}
+.lede{font-size:19px;line-height:1.6;color:#4a3d33;}
+
+/* ============ LOOM-TICK SIGNATURE MOTIF ============ */
+.loom-rule{
+  width:100%;
+  height:14px;
+  background-image:
+    repeating-linear-gradient(90deg, var(--terracotta) 0 2px, transparent 2px 16px),
+    repeating-linear-gradient(90deg, transparent 0 8px, var(--mustard) 8px 10px, transparent 10px 16px);
+  opacity:0.85;
+}
+.loom-rule.dark{
+  background-image:
+    repeating-linear-gradient(90deg, var(--mustard) 0 2px, transparent 2px 16px),
+    repeating-linear-gradient(90deg, transparent 0 8px, var(--sand) 8px 10px, transparent 10px 16px);
+}
+
+/* ============ NAV ============ */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(241,228,206,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 32px;
+  max-width:var(--container);
+  margin:0 auto;
+}
+.logo{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:24px;
+  letter-spacing:-0.01em;
+}
+.logo em{
+  font-style:italic;
+  color:var(--terracotta);
+  font-weight:500;
+}
+.nav-links{
+  display:flex;
+  gap:36px;
+  align-items:center;
+}
+.nav-links a{
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  position:relative;
+  padding-bottom:4px;
+}
+.nav-links a::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0;
+  height:2px; background:var(--mustard);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .25s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--terracotta);}
+.nav-cta{
+  display:flex; align-items:center; gap:22px;
+}
+.icon-btn{
+  font-family:var(--font-mono);
+  font-size:13px;
+  border:1px solid var(--ink);
+  padding:9px 16px;
+  border-radius:var(--radius);
+  transition:background .2s ease, color .2s ease;
+  white-space:nowrap;
+}
+.icon-btn:hover{background:var(--ink); color:var(--sand);}
+.nav-toggle{display:none;}
+
+@media (max-width:860px){
+  .site-header{position:sticky;}
+  .nav-links{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--sand);
+    flex-direction:column;
+    padding:28px 24px;
+    gap:20px;
+    transform:translateY(-110%);
+    transition:transform .3s ease;
+    border-top:1px solid var(--line);
+    box-shadow:0 12px 24px rgba(43,33,27,0.12);
+  }
+  .nav-links.open{transform:translateY(0);}
+  .nav-toggle{
+    display:block;
+    background:none;border:none;
+    font-family:var(--font-mono);
+    font-size:13px;
+  }
+}
+
+@media (max-width:640px){
+  .nav{padding:16px 20px;}
+  .logo{font-size:20px;}
+  .nav-cta{gap:14px;}
+  .nav-cta .icon-btn{display:none;}
+}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:15px 28px;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:0.02em;
+  border-radius:var(--radius);
+  border:1px solid transparent;
+  transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-primary{background:var(--red); color:var(--cream);}
+.btn-primary:hover{background:var(--red-dark); transform:translateY(-2px);}
+.btn-outline{border-color:var(--ink); color:var(--ink);}
+.btn-outline:hover{background:var(--ink); color:var(--sand);}
+
+/* ============ CONTACT SECTION ============ */
+.contact-hero{
+  min-height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:64px 32px;
+}
+.contact-hero-content{
+  max-width:600px;
+}
+.contact-hero-content h1{
+  font-size:clamp(36px, 5vw, 56px);
+  margin-bottom:20px;
+  color:var(--ink);
+}
+.contact-hero-content p{
+  font-size:18px;
+  color:#6b5c4c;
+  margin-bottom:40px;
+}
+
+/* ============ CONTACT METHODS ============ */
+.contact-methods{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:40px;
+  padding:64px 0;
+  max-width:900px;
+  margin:0 auto;
+}
+.contact-method{
+  text-align:center;
+  padding:40px;
+  background:var(--sand-deep);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+}
+.contact-method-icon{
+  font-size:48px;
+  margin-bottom:20px;
+}
+.contact-method h2{
+  font-size:24px;
+  margin-bottom:16px;
+  color:var(--ink);
+}
+.contact-method p{
+  color:#6b5c4c;
+  margin-bottom:24px;
+}
+.contact-method a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--terracotta);
+  font-weight:600;
+  padding:10px 16px;
+  border:1px solid var(--terracotta);
+  border-radius:var(--radius);
+  transition:all .2s ease;
+}
+.contact-method a:hover{
+  background:var(--terracotta);
+  color:var(--cream);
+}
+
+/* ============ SOCIAL LINKS ============ */
+.social-section{
+  text-align:center;
+  padding:64px 32px;
+  border-top:1px solid var(--line);
+  margin-top:64px;
+}
+.social-section h2{
+  font-size:28px;
+  margin-bottom:40px;
+  color:var(--ink);
+}
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  flex-wrap:wrap;
+}
+.social-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:80px;
+  height:80px;
+  background:var(--sand-deep);
+  border:2px solid var(--line);
+  border-radius:50%;
+  font-size:32px;
+  transition:all .3s ease;
+  text-decoration:none;
+  color:var(--ink);
+}
+.social-link:hover{
+  background:var(--terracotta);
+  border-color:var(--terracotta);
+  color:var(--cream);
+  transform:translateY(-4px);
+}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--brown);
+  color:#cdbca4;
+  padding:72px 0 28px;
+  margin-top:64px;
+}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:24px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:#8a7a64;
+}
+
+@media (max-width:768px){
+  .contact-methods{
+    grid-template-columns:1fr;
+    gap:24px;
+    padding:40px 0;
+  }
+  .contact-method{
+    padding:32px;
+  }
+  .social-links{
+    gap:24px;
+  }
+  .social-link{
+    width:70px;
+    height:70px;
+    font-size:28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">Ayush<em>rugs</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#shop">Shop</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="index.html#shop" class="icon-btn">View Collection</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="contact-hero">
+    <div class="contact-hero-content">
+      <span class="eyebrow">Get in Touch</span>
+      <h1>We'd love to hear from you</h1>
+      <p>Have questions about our hand-knotted rugs or want to collaborate? Reach out through any of the channels below.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="contact-methods">
+      <div class="contact-method">
+        <div class="contact-method-icon">✉️</div>
+        <h2>Email</h2>
+        <p>Get in touch directly via email for any inquiries about our rugs or custom orders.</p>
+        <a href="mailto:ayushrugs5@gmail.com">ayushrugs5@gmail.com</a>
+      </div>
+
+      <div class="contact-method">
+        <div class="contact-method-icon">📷</div>
+        <h2>Instagram</h2>
+        <p>Follow us on Instagram to see behind-the-scenes content and new collections.</p>
+        <a href="https://instagram.com/ayushrugs5" target="_blank" rel="noopener noreferrer">@ayushrugs5</a>
+      </div>
+    </section>
+
+    <section class="social-section">
+      <h2>Connect With Us</h2>
+      <div class="social-links">
+        <a href="mailto:ayushrugs5@gmail.com" class="social-link" title="Email us" aria-label="Email">
+          ✉️
+        </a>
+        <a href="https://instagram.com/ayushrugs5" target="_blank" rel="noopener noreferrer" class="social-link" title="Follow on Instagram" aria-label="Instagram">
+          📷
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 Ayushrugs. All rugs handmade in Rajasthan, India.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.textContent = open ? 'Close' : 'Menu';
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+</script>
+</body>
+</html>
